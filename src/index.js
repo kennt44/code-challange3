@@ -1,4 +1,4 @@
-let films = "http://localhost:5500/films"
+let films = "https://kenn-klop.onrender.com/films"
       document.addEventListener('DOMContentLoaded', async(event)=>{
           const films = await GetAllMovies()
            viewMoviePoster(films)
@@ -6,7 +6,7 @@ let films = "http://localhost:5500/films"
       })
 movieTitles()
       function GetAllMovies() {
-          return fetch("http://localhost:5500/films",{
+          return fetch("https://kenn-klop.onrender.com/films",{
               method:"GET",
               headers:{
                   "Content-Type": "application/json",
@@ -20,17 +20,26 @@ movieTitles()
       
       const ul = document.getElementById("films")
       function movieTitles() {
-          return fetch("http://localhost:5500/films")
+          return fetch("https://kenn-klop.onrender.com/films")
           .then(res => res.json())
-          .then(title => title.map(movie => {
+          .thentitle => title.mapmovie => }
             let li = document.createElement("li");
             li.innerHTML = `
             <div>
             <h3 id="${movie.id}"class="movies">${movie.title}</h3> 
             </div>`
             ul.appendChild(li)
-          }))
-      }
+            title.forEach((item)=>{
+                    
+                if (e.target.textContent===item.title){
+                    document.getElementById('runtime').textContent=item.runtime
+                    document.getElementById('film-info').textContent = item.description
+                    document.getElementById('showtime').textContent=item.showtime
+                    document.getElementById('ticket-num').textContent=item.capacity
+                    
+                }
+          })
+      
       function viewMoviePoster(films){
         const Image = document.querySelector('#image')
         const cont = document.createElement('div')
